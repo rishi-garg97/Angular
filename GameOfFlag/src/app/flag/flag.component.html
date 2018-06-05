@@ -1,8 +1,84 @@
-<div>
+<!-- <div>
     <div>
         <span style="width:10em;line-height: 10em" class="flag-icon flag-icon-{{randomNationISOCode | lowercase}}"></span>
     </div>
     <input type="text" [(ngModel)]="myGuess" placeholder="enter name of nation">
     <button (click)="next()">Fire</button>
     <h1 *ngIf="myGuess && myGuess==randomNationName">Correct Guess !!!</h1>
+</div> -->
+
+
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6" style="padding: 15px;margin: 30px;border-radius: 5px;background: whitesmoke;">
+
+
+            <div class="inline">
+                <div class="d-flex justify-content-end" style="color:white;padding: 8px;text-align: right ; ">
+
+                    <span id="scorevalue" style="margin-right: 12px;background:orange;padding: 10px;">Score : 0</span>
+
+                </div>
+
+                <div style="text-align: center; border-radius: 5px;">
+
+                    <div style="width:20em;height: 12em " class="flag-icon flag-icon-{{randomNationISOCode | lowercase}}">
+                    </div>
+
+                </div>
+
+                <div style="color:white;background:black;padding: 8px;margin: 30px 50px 0px 50px; ">
+
+                    <h4 style="text-align: center">Which country has this flag ?</h4>
+
+                </div>
+
+                <div class="row" style="color:white;margin: 20px 50px 10px 50px; ">
+
+                    <button type="button" style="margin-right:10px;">Rishi</button>
+                    <button type="button" style="margin-left:10px;">Rishi</button>
+
+                </div>
+
+                <div class="row" style="color:white;margin: 20px 50px 10px 50px; ">
+                    <button type="button" style="margin-right:10px;">Rishi</button>
+                    <button type="button" style="margin-left:10px;">Rishi</button>
+
+                </div>
+                <div style="color:white;" class="d-flex justify-content-center row">
+
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-4">
+                        <button *ngIf="!playing" type="button" style="width:100px;margin:10px 20px;height: 40px;" (click)="next()" class="btn btn-primary">Start Game</button>
+                        <button *ngIf="playing" type="button" style="width:100px;margin:10px 20px;height: 40px;" (click)="onReset()" class="btn btn-primary">Reset Game</button>
+
+                    </div>
+
+                    <div class="col-md-4 " style="font-size: 1em;padding-top: 10px;font-weight: 500">
+                        <countdown (finished)="onFinished()" *ngIf="playing" style="color:black" [config]="{leftTime: 1* 5}">Time Remaining : $!s!</countdown>
+
+
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+
+
+        <div class="col-md-3 "></div>
+
+    </div>
+
+
 </div>

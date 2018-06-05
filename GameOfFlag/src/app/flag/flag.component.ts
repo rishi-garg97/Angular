@@ -11,6 +11,7 @@ export class FlagComponent implements OnInit {
   randomNationName;
   randomNationISOCode;
   myGuess;
+  playing=false;
 
   constructor(private cService: FlagServieService) { }
 
@@ -28,6 +29,17 @@ export class FlagComponent implements OnInit {
     this.randomNationISOCode = countries[random]['alpha-2']
     console.log(this.randomNationISOCode,this.randomNationName)
     this.myGuess = "";
+    this.playing=true;
+    }
+    onFinished(){
+      this.playing=false;
+      
+      alert("Ooops Timeout");
+    }
+    onReset(){
+      this.playing=false;
+      location.reload();
+
     }
 
 }
