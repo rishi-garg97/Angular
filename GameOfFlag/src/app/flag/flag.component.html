@@ -17,10 +17,29 @@
 
 
             <div class="inline">
-                <div class="d-flex justify-content-end" style="color:white;padding: 8px;text-align: right ; ">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="d-flex justify-content-end" style="color:white;padding: 8px;text-align: right ; ">
 
-                    <span id="scorevalue" style="margin-right: 12px;background:orange;padding: 10px;">Score : 0</span>
+                            <span *ngIf="yes" id="scorevalue" style="border-radius:5px;margin-right: 12px;background:green;padding: 10px;">
+                                    <countdown (finished)="onCorrect()" style="border-radius:5px;margin-right: 12px;padding: 10px;" [config]="{leftTime: 1* 1}">Correct</countdown>
 
+                            </span>
+
+                            <span *ngIf="no" id="scorevalue" style="border-radius:5px;margin-right: 12px;background:red;padding: 10px;">
+                                    <countdown (finished)="onWrong()" style="border-radius:5px;margin-right: 12px;padding: 10px;" [config]="{leftTime: 1* 1}">Wrong</countdown>
+
+                            </span>
+
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="d-flex justify-content-end" style="color:white;padding: 8px;text-align: right ; ">
+
+                            <span id="scorevalue" style="margin-right: 12px;background:orange;padding: 10px;">Score : {{score}}</span>
+
+                        </div>
+                    </div>
                 </div>
 
                 <div style="text-align: center; border-radius: 5px;">
@@ -36,16 +55,16 @@
 
                 </div>
 
-                <div class="row" style="color:white;margin: 20px 50px 10px 50px; ">
+                <div class="row" style="color:white;margin: 20px 50px 10px 50px; font: 14px 800;">
 
-                    <button type="button" style="margin-right:10px;">Rishi</button>
-                    <button type="button" style="margin-left:10px;">Rishi</button>
+                    <button (click)="check(a[0])" type="button" style="margin-right:10px;">{{a[0]}}</button>
+                    <button (click)="check(a[1])" type="button" style="margin-left:10px;">{{a[1]}}</button>
 
                 </div>
 
-                <div class="row" style="color:white;margin: 20px 50px 10px 50px; ">
-                    <button type="button" style="margin-right:10px;">Rishi</button>
-                    <button type="button" style="margin-left:10px;">Rishi</button>
+                <div class="row" style="color:white;margin: 20px 50px 10px 50px;font: 14px 800;">
+                    <button (click)="check(a[2])" type="button" style="margin-right:10px;">{{a[2]}}</button>
+                    <button (click)="check(a[3])" type="button" style="margin-left:10px;">{{a[3]}}</button>
 
                 </div>
                 <div style="color:white;" class="d-flex justify-content-center row">
@@ -60,7 +79,7 @@
                     </div>
 
                     <div class="col-md-4 " style="font-size: 1em;padding-top: 10px;font-weight: 500">
-                        <countdown (finished)="onFinished()" *ngIf="playing" style="color:black" [config]="{leftTime: 1* 5}">Time Remaining : $!s!</countdown>
+                        <countdown (finished)="onFinished()" *ngIf="playing" style="color:black" [config]="{leftTime: 60}">Time Remaining : $!s!</countdown>
 
 
 
