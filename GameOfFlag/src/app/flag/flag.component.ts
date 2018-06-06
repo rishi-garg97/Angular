@@ -18,7 +18,7 @@ export class FlagComponent implements OnInit {
   correctPosition;
   yes=false;
   no=false;
-
+ audio;
 
   constructor(private cService: FlagServieService) { }
 
@@ -52,10 +52,10 @@ export class FlagComponent implements OnInit {
 
         do   
         {
-         
+ 
         let countrie = this.cService.getCountries();
         let ran = Math.floor(Math.random()*countrie.length);
-         wanswer= this.randomNationName = countries[ran].name;
+        wanswer= this.randomNationName = countries[ran].name;
        }while(this.a.indexOf(wanswer)>-1);
 
 
@@ -91,8 +91,13 @@ export class FlagComponent implements OnInit {
      
       if(aa==this.canswer){
         
+        this.audio = new Audio();
+        this.audio.src = "../../assets/sound/correct.mp3";
+        this.audio.load();
+        this.audio.play();
         this.yes=true;
         this.no=false;
+        
         
         this.score++;
         this.next();
@@ -103,6 +108,7 @@ export class FlagComponent implements OnInit {
        
         this.no=true;
         this.yes=false;
+        this.next();
         
       }
 
