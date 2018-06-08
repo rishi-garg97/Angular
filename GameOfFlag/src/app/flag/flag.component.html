@@ -13,13 +13,13 @@
 
     <div class="row">
         <div class="col-md-3"></div>
-        <div class="col-md-6" style="padding: 15px;margin: 30px;border-radius: 5px;background: whitesmoke;">
+        <div class="col-md-6" style="padding:15px;margin:10px;border-radius: 5px;background: whitesmoke;">
 
 
             <div class="inline">
                 <div class="row">
                     <div class="col-md-7">
-                        <div class="d-flex justify-content-end" style="color:white;padding: 8px;text-align: right ; ">
+                        <div class="d-flex justify-content-end" style="color:white;padding: 2px;text-align: right ; ">
 
                             <span *ngIf="yes" id="scorevalue" style="border-radius:5px;margin-right: 12px;background:green;padding: 10px;">
                                     <countdown (finished)="onCorrect()" style="border-radius:5px;margin-right: 12px;padding: 10px;" [config]="{leftTime: 1* 1}">Correct</countdown>
@@ -49,40 +49,34 @@
 
                 </div>
 
-                <div style="color:white;background:black;padding: 8px;margin: 30px 50px 0px 50px; ">
+                <div style="color:white;background:black;padding: 8px;margin: 15px 30px 0px 30px; ">
 
                     <h4 style="text-align: center">Which country has this flag ?</h4>
 
                 </div>
 
-                <div class="row" style="color:white;margin: 20px 50px 10px 50px; font: 14px 800;">
+                <div class="row" style="margin: 12px 20px 12px 20px;font: 14px 800;">
 
-                    <button (click)="check(a[0])" type="button" style="margin-right:10px;">{{a[0]}}</button>
-                    <button (click)="check(a[1])" type="button" style="margin-left:10px;">{{a[1]}}</button>
+                    <button class="col-sm-12" (click)=" check(a[0]) " type="button ">{{a[0]}}</button>
+                    <button class="col-sm-12" (click)="check(a[1]) " type="button ">{{a[1]}}</button>
 
-                </div>
-
-                <div class="row" style="color:white;margin: 20px 50px 10px 50px;font: 14px 800;">
-                    <button (click)="check(a[2])" type="button" style="margin-right:10px;">{{a[2]}}</button>
-                    <button (click)="check(a[3])" type="button" style="margin-left:10px;">{{a[3]}}</button>
+                    <button class="col-sm-12" (click)="check(a[2]) " type="button ">{{a[2]}}</button>
+                    <button class="col-sm-12" (click)="check(a[3]) " type="button ">{{a[3]}}</button>
 
                 </div>
-                <div style="color:white;" class="d-flex justify-content-center row">
+                <div style="color:white; " class=" row ">
 
-                    <div class="col-md-4">
+                    <div class="col-md-2 ">
 
                     </div>
-                    <div class="col-md-4">
-                        <button *ngIf="!playing" type="button" style="width:100px;margin:10px 20px;height: 40px;" (click)="next()" class="btn btn-primary">Start Game</button>
-                        <button *ngIf="playing" type="button" style="width:100px;margin:10px 20px;height: 40px;" (click)="onReset()" class="btn btn-primary">Reset Game</button>
+                    <div class="col-md-6  d-flex justify-content-center">
+                        <button *ngIf="!playing " type="button " style="width:100px;height: 40px; " (click)="next() " class="btn btn-primary ">Start</button>
+                        <button *ngIf="playing " type="button " style="width:100px;height: 40px; " (click)="onReset() " class="btn btn-primary ">Reset</button>
 
                     </div>
 
-                    <div class="col-md-4 " style="font-size: 1em;padding-top: 10px;font-weight: 500">
-                        <countdown (finished)="onFinished()" *ngIf="playing" style="color:black" [config]="{leftTime: 60}">Time Remaining : $!s!</countdown>
-
-
-
+                    <div class="col-md-4  d-flex justify-content-center" style="font-size: 1em;padding-top: 10px;font-weight: 500 ">
+                        <countdown (finished)="onFinished() " *ngIf="playing " style="color:black " [config]="{leftTime: 60} ">Time Left : $!s!</countdown>
                     </div>
 
                 </div>
