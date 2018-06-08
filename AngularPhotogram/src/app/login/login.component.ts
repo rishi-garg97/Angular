@@ -1,3 +1,4 @@
+import { DataserviceService } from './../dataservice.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  username;
+  constructor(private dservice:DataserviceService) { }
 
   ngOnInit() {
+    this.dservice.user =this.username;
+  
   }
 
 }
