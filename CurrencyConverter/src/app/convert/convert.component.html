@@ -1,0 +1,12 @@
+<input type="number" [(ngModel)]="i1" (keyup)="i1 && unit1 && unit2 && cal2()">
+<select [(ngModel)]="unit1" (change)="i1 && unit1 && unit2 && cal2()">
+   
+  <option selected>Select</option>
+  <option *ngFor = " let a of currency ">{{a}}</option>
+</select>
+<input type="number " [(ngModel)]="i2" (keyup)="i2 && unit1 && unit2 && cal1()">
+<select [(ngModel)]="unit2 " (change)="i1 && unit1 && unit2 && cal2()">
+    <option selected>Select</option>
+
+  <option *ngFor = " let a of currency ">{{a}}</option>
+</select>
