@@ -11,8 +11,10 @@ export class ConvertComponent implements OnInit {
   url="https://exchangeratesapi.io/api/latest?base=";
   currency;
   
-  i1;
-  i2;
+  i1; node
+i2;
+
+
   unit1;
   unit2;
 

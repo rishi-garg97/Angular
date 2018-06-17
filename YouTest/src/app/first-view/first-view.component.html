@@ -1,0 +1,26 @@
+<button type="submit" routerLink="second">
+  <br>
+  
+  Show Cart
+</button>
+<!-- <ul>
+    <li *ngFor="let item of List1;">
+        {{item.name}}
+    </li>
+</ul> -->
+<!-- console.log(item); -->
+
+<div>
+    <div *ngFor="let item of List1;let i = index;" class="row" style="border:2px solid black;width: 150px;">
+        <p>name = {{item.name}}</p>
+
+        <p>category = {{item.category}}</p>
+
+        <p>price = {{item.rate}}</p>
+
+        <p>rating = {{item.rating}}</p>
+
+        <button (click)="userList(i)">Add to cart</button>
+
+    </div>
+</div>
